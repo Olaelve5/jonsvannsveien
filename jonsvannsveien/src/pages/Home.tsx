@@ -2,11 +2,11 @@ import React from "react";
 
 import "../styles/Home.css";
 
-import isbjørn from "../assets/øl/isbjørn.png";
+import isbjørn from "../assets/øl/isbjørn1.png";
 
 const Home = () => {
   return (
-    <div className="isbjørn-container">
+    <div className="øl-top-container">
       <img src={isbjørn} alt="isbjørn" />
     </div>
   );
