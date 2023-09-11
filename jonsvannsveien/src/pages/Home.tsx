@@ -7,7 +7,7 @@ import isbjørn from "../assets/øl/isbjørn1.png";
 const Home = () => {
   return (
     <div className="øl-top-container">
-      <img src={isbjørn} alt="isbjørn" />
+      {/* <img src={isbjørn} alt="isbjørn" /> */}
     </div>
   );
 };
