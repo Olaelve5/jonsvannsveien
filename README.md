@@ -1,2 +1,2 @@
 # jonsvannsveien
-A simple calculator
+A simple calculator :)
