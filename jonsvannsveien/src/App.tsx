@@ -8,7 +8,8 @@ import Spline from "@splinetool/react-spline";
 function App() {
   return (
     <>
-      <Spline scene="https://prod.spline.design/sw7pNIINhEi4rRH9/scene.splinecode" />
+      <Spline scene="https://prod.spline.design/Ni3jDaKGWW5RrffF/scene.splinecode" />
+
       <Home />
       <Patricle />
     </>
