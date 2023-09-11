@@ -16,7 +16,7 @@ body {
 
 .øl-top-container > img {
   width: 200px;
-  animation: rotate 0.00001s linear infinite;
+  animation: rotate 4s linear infinite;
 }
 
 @keyframes rotate {

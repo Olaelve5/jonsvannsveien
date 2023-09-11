@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { child, get, getDatabase, ref, set } from "firebase/database";
 import { database } from "../utils/firebase.js";
 import "../styles/Home.css";
+import isbjørn from "../assets/øl/isbjørn1.png";
 
 interface Member {
   name: string;
@@ -37,6 +38,7 @@ const Home = () => {
   return (
     <div className="øl-top-container">
       <h1>Jonsvannsveien 69B</h1>
+      <img src={isbjørn} alt="isbjørn" />
       <div>
         {members.map((member, index) => (
           <p key={index}>{member.name}</p>
