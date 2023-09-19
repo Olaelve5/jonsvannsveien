@@ -9,6 +9,8 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+
 const Navbar = () => {
   const [isMoonClicked, setIsMoonClicked] = useState(false);
   const [isBarsClicked, setIsBarsClicked] = useState(false);
@@ -51,7 +53,11 @@ const Navbar = () => {
           )}
         </div>
         <div id="menu-icon-container" onClick={toogleDropDown}>
-          <FontAwesomeIcon icon={faBars} id="navbar-icon" />
+          {!isBarsClicked ? (
+            <FontAwesomeIcon icon={faBars} id="navbar-icon" />
+          ) : (
+            <FontAwesomeIcon icon={faCircleXmark} id="navbar-icon" />
+          )}
         </div>
       </div>
       <div
