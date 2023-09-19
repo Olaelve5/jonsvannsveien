@@ -1,0 +1,23 @@
+.container {
+  background-color: rgb(28 59 100);
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileHeader {
+  color: white;
+}
+
+.profilePicture {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+.description {
+  color: white;
+}
