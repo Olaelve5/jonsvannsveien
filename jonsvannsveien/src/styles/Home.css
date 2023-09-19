@@ -1,8 +1,8 @@
 body {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-sizing: border-box;
   overflow: hidden;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Roboto", sans-serif;
   color: black;
   letter-spacing: 1px;
 }
