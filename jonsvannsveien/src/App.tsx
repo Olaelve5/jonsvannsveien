@@ -1,20 +1,22 @@
-import { useState } from "react";
-
 import Home from "./pages/Home";
-import Patricle from "./components/Particle";
-
-import Spline from "@splinetool/react-spline";
+import Personer from "./pages/Personer";
+import Gjestebok from "./pages/Gjestebok";
+import Øl from "./pages/Øl";
+import VIP from "./pages/VIP";
+import "./styles/App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
-
   return (
-    <>
-      {/* <Spline scene="https://prod.spline.design/Ni3jDaKGWW5RrffF/scene.splinecode" /> */}
-
-      <Home />
-      {/* <Patricle /> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/personer" element={<Personer />} />
+        <Route path="/ol" element={<Øl />} />
+        <Route path="/gjestebok" element={<Gjestebok />} />
+        <Route path="/vip" element={<VIP />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

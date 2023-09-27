@@ -1,48 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { child, get, getDatabase, ref, set } from "firebase/database";
-import { database } from "../utils/firebase.js";
 import "../styles/Home.css";
-import isbjørn from "../assets/øl/isbjørn1.png";
 
-interface Member {
-  name: string;
-  age: number;
-}
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-  const [members, setMembers] = useState<Member[]>([]);
-
-  const dbRef = ref(database);
-
-  useEffect(() => {
-    getMembers();
-  }, []);
-
-  async function getMembers(): Promise<void> {
-    get(child(dbRef, `members/`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          const memberData = snapshot.val();
-          const memberArray: Member[] = Object.values(memberData);
-          setMembers(memberArray);
-          //setMembers(...members, snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
   return (
-    <div className="øl-top-container">
-      <h1>Jonsvannsveien 69B</h1>
-      <img src={isbjørn} alt="isbjørn" />
-      <div>
-        {members.map((member, index) => (
-          <p key={index}>{member.name}</p>
-        ))}
+    <div>
+      <Navbar />
+      <h1>Jonsvannsveien</h1>
+      <div className="home-content">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/jonsvannsveien-eb705.appspot.com/o/Images%2FOther%2Fhus-garage.png?alt=media&token=8fbf91aa-8f3f-4d14-a5ba-3105c9715405"
+          alt="hus"
+          className="hus"
+        />
+        <h1>Hi</h1>
       </div>
     </div>
   );
