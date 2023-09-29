@@ -4,7 +4,7 @@
   display: grid;
   place-items: center;
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   z-index: 100;
 }
 
@@ -18,10 +18,10 @@
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 1fr;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   position: relative;
-  left: -10px;
+  left: 0px;
   z-index: 100;
 }
 
@@ -32,8 +32,9 @@
   width: 100%;
   height: 100%;
   border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(7px);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 100;
 }
 
@@ -131,9 +132,9 @@
   bottom: 17%;
   height: 500px;
   border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 100;
   animation: drop-down-animation 0.5s ease-in-out forwards;
 }

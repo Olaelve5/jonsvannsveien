@@ -3,6 +3,7 @@ import { ref, get, child } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import { database } from "../utils/firebase.js";
 import Member from "../components/Member.js";
+import Navbar from "../components/Navbar.js";
 import "../styles/Members.css";
 
 interface Member {
@@ -16,6 +17,7 @@ const Members = () => {
   const [members, setMembers] = useState<Member[]>([]);
 
   const dbRef = ref(database);
+  document.body.style.overflow = "auto";
 
   useEffect(() => {
     getMembers();
@@ -38,18 +40,21 @@ const Members = () => {
       });
   }
   return (
-    <div className="wrapper">
-      <h1 className="header" >Folkene i Jonsvannsveien 69B</h1>
-      <div>
-        {members.map((member) => (
-          <Member
-            name={member.name}
-            hometown={member.hometown}
-            age={member.age}
-            pictureUrl={member.pictureUrl}
-          />
-          // <p key={index}>{member.name}</p>
-        ))}
+    <div>
+      <Navbar />
+      <h1 className="members-header">Folka</h1>
+      <div className="wrapper-folka">
+        <div className="members-li">
+          {members.map((member) => (
+            <Member
+              name={member.name}
+              hometown={member.hometown}
+              age={member.age}
+              pictureUrl={member.pictureUrl}
+            />
+            // <p key={index}>{member.name}</p>
+          ))}
+        </div>
       </div>
     </div>
   );
