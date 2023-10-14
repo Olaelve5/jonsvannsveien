@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import { firestore } from "../utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../App";
 
 const Øl = () => {
   const [beers, setBeers] = useState<{ id: string }[]>([]);

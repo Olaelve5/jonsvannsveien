@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { database, firestore } from "../utils/firebase";
 import Navbar from "../components/Navbar";
 import "../styles/gjestebok.css";
+import { database } from "../App";
 
 const Gjestebok = () => {
   const [name, setName] = useState("");

@@ -1,10 +1,11 @@
 // src/components/HomePage.tsx
 import { ref, get, child } from "firebase/database";
 import { useEffect, useState } from "react";
-import { database } from "../utils/firebase.js";
+//import { database } from "../config/firebase.js";
 import Member from "../components/Member.js";
 import Navbar from "../components/Navbar.js";
 import "../styles/Members.css";
+import { database } from "../App.js";
 
 interface Member {
   name: string;

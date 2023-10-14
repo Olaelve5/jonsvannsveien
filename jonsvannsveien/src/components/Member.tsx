@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import "../styles/Member.css";
 import * as React from "react";
 import Modal from "@mui/material/Modal";
@@ -27,6 +26,7 @@ export default function Member(props: Props) {
       </div>
       <Modal open={open} onClose={() => setOpen(!open)}>
         <div className="modalContainer">
+          <div className="profileHeaderLarge">
           <h1>{props.name}</h1>
           <img className="profilePictureLarge" src={props.pictureUrl} />
           <p>
@@ -34,6 +34,7 @@ export default function Member(props: Props) {
             <br />
             Skostørrelse: {props.shoesize}
           </p>
+          </div>
         </div>
       </Modal>
     </>
