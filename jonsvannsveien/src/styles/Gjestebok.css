@@ -1,0 +1,13 @@
+.containerr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name {
+  padding: 20px;
+}
+
+.description {
+  padding: 20px;
+}

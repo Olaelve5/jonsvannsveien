@@ -1,67 +1,80 @@
 // src/components/HomePage.tsx
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/Member.css";
-import Modal from "react-overlays/Modal";
-import styled from "styled-components";
+import Modal from "react-bootstrap/Modal";
 
 interface Props {
   name: string;
   hometown: string;
   age: number;
   pictureUrl: string;
+  nickname: string;
+  shoesize: number;
 }
 
 export default function Member(props: Props) {
-  const [expand, setExpand] = useState(false);
-  const [colorIndex, setColorIndex] = useState(0);
+  const [show, setShow] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
-  const Backdrop = styled("div")`
-    position: fixed;
-    z-index: 1040;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #000;
-    opacity: 0.5;
-  `;
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const path = event.composedPath();
+      if (modalRef.current && !path.includes(modalRef.current)) {
+        setShow(false);
+      }
+    };
 
-  const renderBackdrop = (props: any) => <Backdrop {...props} />;
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="container" onClick={() => setExpand(!expand)}>
-      <img className="profilePictureSmall" src={props.pictureUrl} alt="profile" />
-      <h1 className="profileHeaderSmall">{props.name.split(" ")[0]}</h1>
+    <>
+      <div onClick={() => setShow(!show)} className="container">
+        <img
+          className="profilePictureSmall"
+          src={props.pictureUrl}
+          alt="profile"
+        />
+        <h1 className="profileHeaderSmall">{props.nickname}</h1>
+      </div>
+
       <Modal
-
-        show={expand}
-        renderBackdrop={renderBackdrop}
-        onBackdropClick={() => setExpand(!expand)}>
-        <div
-          style={{
-            zIndex: 10000,
-            position: "absolute",
-            top: 30,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            padding: 20,
-            width: "80%",
-            height: "90%",
-            margin: "auto",
-            marginBottom: 30,
-            backgroundColor: "white",
-          }}>
-          <h1 style={{color: 'black'}}>
-            {props.name} ({props.age})
+        ref={modalRef}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          margin: "auto",
+          backgroundColor: "white",
+          width: "80%",
+          height: "65%",
+          borderRadius: "10px",
+          padding: "10px",
+          zIndex: 1000,
+        }}
+        show={show}
+        onHide={() => setShow(!show)}>
+        <div>
+          <h1 className="profileHeaderLarge">
+            {props.name}({props.age})
           </h1>
-          <img className="profilePictureLarge" src={props.pictureUrl} alt="profile" />
-          <p style={{ color: "black" }}>{props.hometown}</p>
-          {props.name==='Mats Klevstad' ? <p style={{color:'black'}}>3cm</p>: <></>}
-          {props.name==='Ola Johannes Elvedahl' ? <p style={{color:'black', fontSize:70}}>KE?</p>: <></>}
-
+          <img
+            className="profilePictureLarge"
+            src={props.pictureUrl}
+            alt="profile"
+          />
+          <p style={{ color: "black" }}>
+            Hjemsted: {props.hometown} <br />
+            Skostørrelse: {props.shoesize}
+          </p>
         </div>
       </Modal>
-    </div>
+    </>
   );
 }
