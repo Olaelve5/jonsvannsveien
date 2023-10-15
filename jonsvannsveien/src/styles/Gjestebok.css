@@ -4,25 +4,41 @@
   align-items: center;
 }
 
-.name {
-  padding: 20px;
-}
-
-.description {
-  padding: 20px;
-}
-
 .inputFields {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.postContainer {
+.authorAndTitle {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: pink;
-  margin-top: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.inputTitle {
+}
+
+.inputAuthor {
+}
+
+.inputDescription {
   width: 80vw;
+  font-size: large;
+}
+
+.submitButton {
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  margin-top: 5px;
+  padding: 10px 20px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
 }
