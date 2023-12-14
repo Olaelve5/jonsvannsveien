@@ -1,16 +1,19 @@
 // src/components/HomePage.tsx
 import { ref, get, child } from "firebase/database";
-import React, { useEffect, useState } from "react";
-import { database } from "../utils/firebase.js";
+import { useEffect, useState } from "react";
+//import { database } from "../config/firebase.js";
 import Member from "../components/Member.js";
 import Navbar from "../components/Navbar.js";
 import "../styles/Members.css";
+import { database } from "../App.js";
 
 interface Member {
   name: string;
   hometown: string;
   age: number;
   pictureUrl: string;
+  nickname: string;
+  shoesize: number;
 }
 
 const Members = () => {
@@ -47,10 +50,13 @@ const Members = () => {
         <div className="members-li">
           {members.map((member) => (
             <Member
+              key={member.pictureUrl}
               name={member.name}
               hometown={member.hometown}
               age={member.age}
               pictureUrl={member.pictureUrl}
+              nickname={member.nickname}
+              shoesize={member.shoesize}
             />
             // <p key={index}>{member.name}</p>
           ))}

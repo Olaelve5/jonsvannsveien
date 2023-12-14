@@ -23,6 +23,7 @@
   position: relative;
   left: 0px;
   z-index: 100;
+  cursor: pointer;
 }
 
 #menu-btn::before {
@@ -191,8 +192,8 @@
 }
 
 #hc-img {
-  width: 90px;
-  height: 70px;
+  width: 130px;
+  height: 100px;
 }
 
 /*-------------------------------------------------------------------------------*/

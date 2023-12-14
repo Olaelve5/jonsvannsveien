@@ -13,6 +13,7 @@
   z-index: 2;
   position: relative;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 
 .container::before {
@@ -39,6 +40,18 @@
   z-index: 2;
 }
 
+.profileHeaderLarge {
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 100%;
+  color: black;
+  height: 90%;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
 .profilePictureSmall {
   width: 70px;
   height: 70px;
@@ -52,4 +65,23 @@
 .profilePictureLarge {
   width: 70%;
   border-radius: 50%;
+}
+
+.modalContainer {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 10;
+  width: 90%;
+  overflow: scroll;
+  height: 70%;
+  z-index: -1;
+  background-color: darkslategrey;
+  pointer-events: none;
+  transition: all 0.5s ease;
 }

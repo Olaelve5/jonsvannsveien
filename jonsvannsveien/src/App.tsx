@@ -5,6 +5,14 @@ import Øl from "./pages/Øl";
 import VIP from "./pages/VIP";
 import "./styles/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./config/config.js";
+import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
+
+const app = initializeApp(firebaseConfig);
+export const database = getDatabase(app);
+export const firestore = getFirestore(app);
 
 function App() {
   return (
