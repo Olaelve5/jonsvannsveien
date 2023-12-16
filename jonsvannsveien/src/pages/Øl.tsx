@@ -1,33 +1,46 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import { collection, getDocs } from "firebase/firestore";
-import { firestore } from "../App";
+import { Beer, getBeer } from "../components/Beer";
+import BeerList  from "../components/Beer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
+import "../styles/Beer.css";
 
 const Øl = () => {
-  const [beers, setBeers] = useState<{ id: string }[]>([]);
-  const beerCollectionRef = collection(firestore, "beer");
-
-  const getBeer = async () => {
-    const data = await getDocs(beerCollectionRef);
-
-    setBeers(
-      data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }))
-    );
-    console.log(beers);
-  };
+  const [beers, setBeers] = useState<Beer[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
-    getBeer();
+    const fetchBeers = async () => {
+      const beers = await getBeer();
+      setBeers(beers);
+    };
+  
+    fetchBeers();
   }, []);
 
   return (
     <div>
       <Navbar />
       <h1>Øl</h1>
+      <div className="search-container">
+      {!isFocused && searchTerm === '' && <FontAwesomeIcon icon={faSearch} className="beer-search-icon"/>}
+        <input type="text" onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} 
+        onChange={e => setSearchTerm(e.target.value)} />
+      </div>
+
+      <div className="beers-container">
+        {beers.length === 0 ? (
+          <p>Loading...</p>
+        ) : (
+          <BeerList beers={beers.filter(beer => 
+            beer.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            beer.company.toLowerCase().includes(searchTerm.toLowerCase()))} />
+        )}
+      </div>
     </div>
   );
 };

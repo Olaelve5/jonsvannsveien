@@ -27,7 +27,7 @@ const Navbar = () => {
       } else if (clickedElement === "Personer") {
         navigate("/personer");
       } else if (clickedElement === "Øl") {
-        navigate("/ol");
+        navigate("/beer");
       } else if (clickedElement === "Gjestebok") {
         navigate("/gjestebok");
       } else if (clickedElement === "vip") {
@@ -90,18 +90,6 @@ const Navbar = () => {
             />
           </div>
         </div>
-        {/* <div>
-          <a
-            href="https://www.instagram.com/bodega69b/"
-            target="_blank"
-            id="instagram-icon-container">
-            <img
-              id="insta-img"
-              src="https://firebasestorage.googleapis.com/v0/b/jonsvannsveien-eb705.appspot.com/o/Images%2FMembers%2Fola.jpeg?alt=media&token=8fb5ff3f-11b2-442f-853e-55cbb81aed5a"
-            />
-            <p id="insta-text">@bodega69b</p>
-          </a>
-        </div> */}
       </div>
     </div>
   );
